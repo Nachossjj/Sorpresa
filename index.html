@@ -3,119 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Letter for Carolina</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
-
-    <div class="container">
-        <header>
-            <h1>To My Dearest Carolina</h1>
-            <nav>
-                <ul>
-                    <li><a href="#page1">Page 1</a></li>
-                    <li><a href="#page2">Page 2</a></li>
-                    <li><a href="#page3">Page 3</a></li>
-                    <li><a href="#page4">Page 4</a></li>
-                    <li><a href="#page5">Page 5</a></li>
-                    <li><a href="#page6">Page 6</a></li>
-                    <li><a href="#thank-you">Thank You</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <section id="page1" class="page">
-            <h2>Page 1: Introduction</h2>
-            <p>Happy Valentine’s Day! This love letter is a token of my affectionate feelings toward you.</p>
-            <div class="rose-decoration"></div>
-            <button onclick="nextPage('page2')">Next</button>
-        </section>
-
-        <section id="page2" class="page">
-            <h2>Page 2: Our Story</h2>
-            <p>From our first meeting to countless memories we've created, each moment is priceless.</p>
-            <button onclick="nextPage('page3')">Next</button>
-        </section>
-
-        <section id="page3" class="page">
-            <h2>Page 3: Photo Memories</h2>
-            <div class="gallery">
-                <img src="photo1.jpg" alt="Memory 1">
-                <img src="photo2.jpg" alt="Memory 2">
-                <img src="photo3.jpg" alt="Memory 3">
-            </div>
-            <button onclick="nextPage('page4')">Next</button>
-        </section>
-
-        <section id="page4" class="page">
-            <h2>Page 4: Love Messages</h2>
-            <p>Each day with you is a beautiful addition to my life's journey. I love you more than words can say.</p>
-            <button onclick="nextPage('page5')">Next</button>
-        </section>
-
-        <section id="page5" class="page">
-            <h2>Page 5: Valentine's Invitation</h2>
-            <p>I invite you to celebrate this Valentine’s Day with dinner and a night filled with love.</p>
-            <button onclick="nextPage('page6')">Next</button>
-        </section>
-
-        <section id="page6" class="page">
-            <h2>Page 6: A Promise</h2>
-            <p>I promise to always cherish and love you.</p>
-            <button onclick="nextPage('thank-you')">Next</button>
-        </section>
-
-        <section id="thank-you" class="page">
-            <h2>Thank You</h2>
-            <p>Thank you for being the love of my life!<span class="confetti"></span></p>
-        </section>
-
-    </div>
-
-    <script>
-        let currentPage = 0;
-        const pages = document.querySelectorAll('.page');
-
-        function nextPage(pageId) {
-            pages[currentPage].style.display = 'none';
-            currentPage = Array.from(pages).findIndex(page => page.id === pageId);
-            pages[currentPage].style.display = 'block';
-        }
-
-        // Initialize by hiding all but the first page
-        pages.forEach((page, index) => {
-            if (index !== 0) page.style.display = 'none';
-        });
-    </script>
-
+    <title>Love Letter to Carolina</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            color: white;
-            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f3f1;
+            color: #333;
+            line-height: 1.6;
             padding: 20px;
         }
-        .rose-decoration {
-            background: url('rose.png') no-repeat;
-            height: 120px;
-            background-size: cover;
+        h1 {
+            color: #c72c41;
+            text-align: center;
         }
-        .gallery img {
-            width: 30%;
-            border-radius: 8px;
-            margin: 5px;
+        .love-container {
+            margin: 0 auto;
+            max-width: 600px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
         }
-        .confetti {
-            display: inline-block;
-            animation: confetti-animation 1s ease-in-out infinite;
+        .fade-in {
+            animation: fadeIn 2s;
         }
-        @keyframes confetti-animation {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .interactive-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #c72c41;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .interactive-button:hover {
+            background: #a51c2b;
         }
     </style>
+</head>
+<body>
+    <div class="love-container fade-in">
+        <h1>My Dearest Carolina</h1>
+        <p>From the moment we met, my heart has danced to a melody only you can hear.</p>
+        <p>Your smile lights up my darkest days, and your love is a treasure I will always cherish.</p>
+        <p>Every moment with you is a beautiful memory in the making.</p>
+        <p>Forever yours,</p>
+        <p>[Your Name]</p>
+        <button class="interactive-button" onclick="alert('Thank you for reading my letter!')">Click me!</button>
+    </div>
+    <script>
+        // Add any interactive JavaScript here
+    </script>
 </body>
 </html>
