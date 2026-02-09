@@ -3,15 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Letter to Carolina</title>
+    <title>Love Letter for Carolina</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>My Dearest Carolina,</h1>
-    <p>From the moment our paths crossed, I knew there was something truly special about you. Your laughter is like a melody that dances through my soul, filling my heart with joy and warmth.</p>
-    <p>Every moment spent with you is a treasure, and I cherish our time together more than words can express. Your kindness, your spirit, and your love have transformed my life into something beautiful and meaningful.</p>
-    <p>As we journey through life, I want you to know that I am here for you always, supporting you and loving you unconditionally. You are my greatest inspiration and my deepest desire.</p>
-    <p>Thank you for being you, Carolina. I love you with all my heart.</p>
-    <p>Yours forever,</p>
-    <p>[Your Name]</p>
+
+    <div class="container">
+        <header>
+            <h1>To My Dearest Carolina</h1>
+            <nav>
+                <ul>
+                    <li><a href="#page1">Page 1</a></li>
+                    <li><a href="#page2">Page 2</a></li>
+                    <li><a href="#page3">Page 3</a></li>
+                    <li><a href="#page4">Page 4</a></li>
+                    <li><a href="#page5">Page 5</a></li>
+                    <li><a href="#page6">Page 6</a></li>
+                    <li><a href="#thank-you">Thank You</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="page1" class="page">
+            <h2>Page 1: Introduction</h2>
+            <p>Happy Valentine’s Day! This love letter is a token of my affectionate feelings toward you.</p>
+            <div class="rose-decoration"></div>
+            <button onclick="nextPage('page2')">Next</button>
+        </section>
+
+        <section id="page2" class="page">
+            <h2>Page 2: Our Story</h2>
+            <p>From our first meeting to countless memories we've created, each moment is priceless.</p>
+            <button onclick="nextPage('page3')">Next</button>
+        </section>
+
+        <section id="page3" class="page">
+            <h2>Page 3: Photo Memories</h2>
+            <div class="gallery">
+                <img src="photo1.jpg" alt="Memory 1">
+                <img src="photo2.jpg" alt="Memory 2">
+                <img src="photo3.jpg" alt="Memory 3">
+            </div>
+            <button onclick="nextPage('page4')">Next</button>
+        </section>
+
+        <section id="page4" class="page">
+            <h2>Page 4: Love Messages</h2>
+            <p>Each day with you is a beautiful addition to my life's journey. I love you more than words can say.</p>
+            <button onclick="nextPage('page5')">Next</button>
+        </section>
+
+        <section id="page5" class="page">
+            <h2>Page 5: Valentine's Invitation</h2>
+            <p>I invite you to celebrate this Valentine’s Day with dinner and a night filled with love.</p>
+            <button onclick="nextPage('page6')">Next</button>
+        </section>
+
+        <section id="page6" class="page">
+            <h2>Page 6: A Promise</h2>
+            <p>I promise to always cherish and love you.</p>
+            <button onclick="nextPage('thank-you')">Next</button>
+        </section>
+
+        <section id="thank-you" class="page">
+            <h2>Thank You</h2>
+            <p>Thank you for being the love of my life!<span class="confetti"></span></p>
+        </section>
+
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const pages = document.querySelectorAll('.page');
+
+        function nextPage(pageId) {
+            pages[currentPage].style.display = 'none';
+            currentPage = Array.from(pages).findIndex(page => page.id === pageId);
+            pages[currentPage].style.display = 'block';
+        }
+
+        // Initialize by hiding all but the first page
+        pages.forEach((page, index) => {
+            if (index !== 0) page.style.display = 'none';
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .rose-decoration {
+            background: url('rose.png') no-repeat;
+            height: 120px;
+            background-size: cover;
+        }
+        .gallery img {
+            width: 30%;
+            border-radius: 8px;
+            margin: 5px;
+        }
+        .confetti {
+            display: inline-block;
+            animation: confetti-animation 1s ease-in-out infinite;
+        }
+        @keyframes confetti-animation {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
 </body>
 </html>
